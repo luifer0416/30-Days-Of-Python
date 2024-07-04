@@ -109,6 +109,7 @@ with open('./data/michelle_obama_speech.txt') as fa:
 
 import csv
 
+
 def count_csv(csv):
 	count_p=0
 	count_j=0
