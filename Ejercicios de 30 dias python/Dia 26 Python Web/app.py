@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request,redirect,url_for
 import os
+from procesar_texto import ProcesarTexto
 
 app = Flask(__name__)
 
@@ -14,9 +15,16 @@ def about():
     name = '30 Days Of Python Programming'
     return render_template('about.html', name = name, title = 'About Us')
 
-@app.route('/result')
+@app.route('/result',methods=['GET', 'POST'])
 def result():
-    return render_template('result.html')
+    content = request.form['content']
+    proccess=ProcesarTexto(content)
+    total_words=proccess.number_of_words()
+    total_character=proccess.number_of_characters()
+    most_frequent_word=proccess.frequency_words()
+    density=round(proccess.lexical_density(),2)
+
+    return render_template('result.html',content=content, total_words=total_words,total_character=total_character,most_frequent_word=most_frequent_word,density=density)
 
 @app.route('/post', methods= ['GET','POST'])
 def post():
@@ -31,3 +39,5 @@ def post():
 if __name__ == '__main__':
     port=int(os.environ.get("PORT",5000))
     app.run(debug=True, host='0.0.0.0',port=port)
+
+

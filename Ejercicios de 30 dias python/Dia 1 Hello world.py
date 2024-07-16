@@ -28,7 +28,7 @@ print(type(True))
 print(type([5,4,3,2,8,9]))
 print(type((5,4,3,2,8,9)))
 print(type({5,4,3,2,8,"dos",9}))
-print(type({5:"Holla",4:"Holla de nuevo"}))
+print(type({5:"Holla",4:"Holla de nuevo"})) 
 
 p1=(2,3)
 q1=(10,8)

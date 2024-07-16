@@ -1,7 +1,7 @@
 {% extends 'layout.html' %} {% block content %}
 <div class="container">
   <h1>Text Analyzer</h1>
-  <form action="https://thirtydaysofpython-v1.herokuapp.com/post" method="POST">
+  <form action="/result" method="POST">
     <div>
       <textarea rows="25" name="content" placeholder="write text or copy and paste text here to analyse..." autofocus></textarea>
     </div>
